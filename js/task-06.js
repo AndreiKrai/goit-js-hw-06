@@ -11,14 +11,18 @@
 const inputRef = document.querySelector('#validation-input');
 inputRef.addEventListener('input', onInputBlur);
 const inputLength = inputRef.dataset.length;
-console.log(inputLength);
-console.log(inputRef);
 function onInputBlur(event) {
   if (event.target.value.length == inputLength) {
-    inputRef.classList.add('valid');
-    inputRef.classList.remove('invalid');
+    classChanger('valid', 'invalid');
+    // inputRef.classList.add('valid');
+    // inputRef.classList.remove('invalid');
   } else {
-    inputRef.classList.add('invalid');
-    inputRef.classList.remove('valid');
+    classChanger('invalid', 'valid');
+    // inputRef.classList.add('invalid');
+    // inputRef.classList.remove('valid');
   }
+}
+function classChanger(addClass, removeClass) {
+  inputRef.classList.add(addClass);
+  inputRef.classList.remove(removeClass);
 }
